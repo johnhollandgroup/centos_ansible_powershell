@@ -7,7 +7,7 @@ RUN yum group install -y "Development Tools"
 RUN yum install -y git openssl-devel readline-devel zlib-devel python-devel libffi-devel
 RUN pip install --upgrade pip
 RUN yum -y install python-crypto
-RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.1.0/unicreds-1.1.0_1.rpm
+RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.4.0/unicreds-1.4.0_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
 RUN pip install ansible
@@ -20,4 +20,5 @@ ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/do
 
 RUN curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm
 RUN yum -y install powershell_linux.rpm
-RUN powershell
+RUN yum clean packages
+RUN yum clean all
