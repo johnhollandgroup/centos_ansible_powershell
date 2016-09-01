@@ -10,7 +10,11 @@ RUN yum -y install python-crypto
 RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.4.0/unicreds-1.4.0_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
-RUN pip install ansible
+RUN pip install paramiko PyYAML Jinja2 httplib2 six
+# RUN pip install ansible
+RUN git clone git://github.com/ansible/ansible.git --recursive
+RUN cd ./ansible
+RUN source ./hacking/env-setup
 RUN ansible --version
 RUN pip install awscli
 RUN pip install boto
