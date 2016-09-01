@@ -13,8 +13,7 @@ RUN pip install pywinrm
 RUN pip install paramiko PyYAML Jinja2 httplib2 six
 # RUN pip install ansible
 RUN git clone git://github.com/ansible/ansible.git --recursive
-RUN cd ./ansible
-RUN source ./hacking/env-setup
+RUN source ./ansible/hacking/env-setup
 RUN ansible --version
 RUN pip install awscli
 RUN pip install boto
