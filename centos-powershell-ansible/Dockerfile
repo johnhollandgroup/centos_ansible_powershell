@@ -14,7 +14,6 @@ RUN pip install paramiko PyYAML Jinja2 httplib2 six
 # RUN pip install ansible
 RUN git clone git://github.com/ansible/ansible.git --recursive
 RUN source ./ansible/hacking/env-setup
-RUN ansible --version
 RUN pip install awscli
 RUN pip install boto
 RUN yum -y install sshpass
