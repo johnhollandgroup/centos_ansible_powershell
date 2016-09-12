@@ -22,5 +22,9 @@ ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/do
 
 RUN curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm
 RUN yum -y install powershell_linux.rpm
+RUN git clone https://github.com/PowerShell/PowerShell.git
+RUN mv PowerShell/src/Modules/Shared/PowerShellGet/PSModule.psm1 /opt/microsoft/powershell/6.0.0-alpha.9/Modules/PowerShellGet/PSModule.psm1
+RUN rm -rf PowerShell
+RUN rm powershell_linux.rpm --force
 RUN yum clean packages
 RUN yum clean all
