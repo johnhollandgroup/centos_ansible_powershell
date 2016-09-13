@@ -7,7 +7,7 @@ RUN yum group install -y "Development Tools"
 RUN yum install -y git openssl-devel readline-devel zlib-devel python-devel libffi-devel
 RUN pip install --upgrade pip
 RUN yum -y install python-crypto
-RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.4.0/unicreds-1.4.0_1.rpm
+RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.5.0/unicreds-1.5.0_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
 RUN pip install paramiko PyYAML Jinja2 httplib2 six
