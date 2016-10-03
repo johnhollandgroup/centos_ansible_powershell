@@ -10,7 +10,7 @@ RUN yum -y install python-crypto
 RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.5.0/unicreds-1.5.0_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
-RUN pip install paramiko 
+#RUN pip install paramiko 
 RUN pip install PyYAML Jinja2 httplib2 six
 # RUN pip install ansible
 RUN pip install ansible
