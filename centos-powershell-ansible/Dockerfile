@@ -3,14 +3,16 @@ From centos:latest
 RUN yum install -y epel-release
 RUN yum update -y
 RUN yum -y install python-pip
-RUN yum group install -y "Development Tools"
-RUN yum install -y git openssl-devel readline-devel zlib-devel python-devel libffi-devel
 RUN pip install --upgrade pip
+RUN yum group install -y "Development Tools"
+RUN yum install -y git readline-devel zlib-devel
+RUN yum install -y gcc openssl-devel libffi-devel python-devel
+RUN pip install cryptography
 RUN yum -y install python-crypto
 RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.5.0/unicreds-1.5.0_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
-#RUN pip install paramiko 
+RUN pip install paramiko 
 RUN pip install PyYAML Jinja2 httplib2 six
 # RUN pip install ansible
 RUN pip install ansible
