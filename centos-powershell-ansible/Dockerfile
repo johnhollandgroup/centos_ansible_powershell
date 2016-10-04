@@ -7,7 +7,8 @@ RUN pip install --upgrade pip
 RUN yum group install -y "Development Tools"
 RUN yum install -y git readline-devel zlib-devel
 RUN yum install -y gcc openssl-devel libffi-devel python-devel
-RUN pip install cryptography
+RUN echo "pycparser==2.13" > requirements.txt
+RUN pip install cryptography -r requirements.txt
 RUN yum -y install python-crypto
 RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.5.0/unicreds-1.5.0_1.rpm
 RUN pip install xmltodict
