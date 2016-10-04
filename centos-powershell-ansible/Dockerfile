@@ -28,7 +28,7 @@ RUN curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm
 RUN yum -y install powershell_linux.rpm
 RUN rm powershell_linux.rpm --force
 
-RUN yum install ntp
+RUN yum -y install ntp
 RUN chkconfig ntpd on
 RUN ntpdate pool.ntp.org
 RUN /etc/init.d/ntpd start
