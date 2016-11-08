@@ -10,7 +10,7 @@ RUN yum install -y gcc openssl-devel libffi-devel python-devel
 RUN echo "pycparser==2.13" > requirements.txt
 RUN pip install cryptography -r requirements.txt
 RUN yum -y install python-crypto
-RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/v1.5.0/unicreds-1.5.0_1.rpm
+RUN rpm -ivh https://github.com/Versent/unicreds/releases/download/1.5.1/unicreds-1.5.1_1.rpm
 RUN pip install xmltodict
 RUN pip install pywinrm
 RUN pip install paramiko 
@@ -22,7 +22,7 @@ RUN pip install "azure==2.0.0rc5"
 RUN pip install boto
 RUN yum -y install sshpass
 # Change this URL to the exact version you want to install
-ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.10/powershell-6.0.0_alpha.10-1.el7.centos.x86_64.rpm
+ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.12/powershell-6.0.0_alpha.12-1.el7.centos.x86_64.rpm
 
 RUN curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm
 RUN yum -y install powershell_linux.rpm
