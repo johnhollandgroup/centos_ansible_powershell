@@ -20,6 +20,7 @@ RUN pip install ansible
 RUN pip install awscli
 RUN pip install "azure==2.0.0rc5"
 RUN pip install boto
+RUN pip install boto3
 RUN yum -y install sshpass
 # Change this URL to the exact version you want to install
 ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.1/powershell-6.0.0_beta.1-1.el7.centos.x86_64.rpm
