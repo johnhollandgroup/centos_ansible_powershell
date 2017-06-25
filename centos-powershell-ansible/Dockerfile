@@ -15,10 +15,12 @@ RUN pip install xmltodict
 RUN pip install pywinrm
 RUN pip install paramiko 
 RUN pip install PyYAML Jinja2 httplib2 six
+RUN pip install packaging
 # RUN pip install ansible
 RUN pip install ansible
 RUN pip install awscli
 RUN pip install "azure==2.0.0rc5"
+RUN pip install msrestazure
 RUN pip install boto
 RUN pip install boto3
 RUN yum -y install sshpass
