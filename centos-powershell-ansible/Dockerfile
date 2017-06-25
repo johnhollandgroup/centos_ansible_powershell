@@ -23,7 +23,7 @@ RUN pip install boto
 RUN pip install boto3
 RUN yum -y install sshpass
 # Change this URL to the exact version you want to install
-ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.1/powershell-6.0.0_beta.1-1.el7.centos.x86_64.rpm
+ENV POWERSHELL_DOWNLOAD_URL https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.3/powershell-6.0.0_beta.3-1.el7.x86_64.rpm
 
 RUN curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm
 RUN yum -y install powershell_linux.rpm
