@@ -42,4 +42,5 @@ RUN pip install --upgrade pip \
 RUN yum update -y && yum install -y ca-certificates
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x entrypoint.sh
+ADD certs /certs
 ENTRYPOINT ["/entrypoint.sh"]
