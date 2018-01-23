@@ -1,0 +1,30 @@
+---
+- name: docker builder
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  vars:
+
+    tags:
+      Owner: DL-AWS-Operations@jhg.com.au
+      CostCentre: NA
+      Product: core
+      Application: docker
+
+  tasks:
+
+  - name: create a pipeline to build this image
+    cloudformation:
+      stack_name: cloudops-docker-builder-toolbox
+      state: present
+      region: ap-southeast-2
+      template: "{{ playbook_dir }}/cloudformation.yml"
+      template_parameters:
+        NamespaceName: cloudops
+        ImageName: toolbox
+        GitHubUser: johnhollandgroup
+        GitHubRepo: docker-image-toolbox
+        GitHubBranch: master
+        GitHubToken: "{{ githubtoken }}"
+      tags: "{{ tags }}"
