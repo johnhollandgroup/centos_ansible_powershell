@@ -12,9 +12,11 @@ Check ECR for the URL of your image.
 
 # Using the image
 
-#### Authenticate to AWS using saml2aws
+#### 1. Authenticate to AWS using saml2aws
 
-#### Authenticate to AWS ECR
+See https://github.com/Versent/saml2aws
+
+#### 2. Authenticate to AWS ECR
 
 NOTE: Below assumes profile name `saml`
 
@@ -28,7 +30,7 @@ Windows
 Invoke-Expression -Command (aws --region ap-southeast-2 --profile saml ecr get-login --no-incl)
 ```
 
-#### Using the image
+#### 3. Using the image
 
 ```
 docker run -it 292594605242.dkr.ecr.ap-southeast-2.amazonaws.com/cloudops/toolbox bash
