@@ -40,6 +40,11 @@ RUN pip install --upgrade pip \
         xmltodict \
     && rm -rf ~/.cache/pip
 
+# aws cli aliases
+RUN git clone https://github.com/awslabs/awscli-aliases.git \
+ && mkdir -p ~/.aws/cli \
+ && cp awscli-aliases/alias ~/.aws/cli/alias
+
 # Add JHG CA's
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x entrypoint.sh
