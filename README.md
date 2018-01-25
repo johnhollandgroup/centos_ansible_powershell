@@ -1,14 +1,27 @@
 # Docker Image - ToolBox
 
-Wherever you need an ECR with ansible, feel free to run this:
+# Examples
 
+Lets say you want to know if your `saml2aws` is working, you can test your profile:
 ```
-AWS_PROFILE=<aws profile> ansible-playbook setup.yml -e githubtoken=<github PAT for jhg-cloudops>
+$ toolbox aws --profile sandpit whoami
+{
+    "Account": "046885338755",
+    "UserId": "AROAIMIKGJVB3T35R5FH4:Peter.McIntyre@jhg.com.au",
+    "Arn": "arn:aws:sts::046885338755:assumed-role/AWS-Admin-jhg-ops-sandpit/Peter.McIntyre@jhg.com.au"
+}
 ```
 
-You will then have a pipeline which builds a new image whenver this repo is updated.
-
-Check ECR for the URL of your image.
+Or maybe you're on Windows and you want to use Ansible:
+```
+$ toolbox ansible --version
+ansible 2.4.2.0
+  config file = None
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+```
 
 # Using the toolbox
 
@@ -100,3 +113,19 @@ Windows:
 ```
 Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v ~/.aws:/root/.aws:ro toolbox}"
 ```
+
+# Maintaining the AWS hosted image
+
+## CodePipeline
+
+This deploys the pipeline to build-nonprod (already done, don't do this)
+
+```
+AWS_PROFILE=build-nonprod ansible-playbook setup.yml -e githubtoken=<github PAT for jhg-cloudops>
+```
+
+You will then have a pipeline which builds a new image whenver this repo is updated.
+
+## Updating the image
+
+Just make your updates and commit to master. The pipeline will then run.
