@@ -97,7 +97,7 @@ alias toolbox='docker run -it -v ~/.aws:/root/.aws:ro toolbox'
 
 Windows:
 ```
-function toolbox {docker run -it -v ~/.aws:/root/.aws:ro toolbox}
+function toolbox {docker run -it -v ~/.aws:/root/.aws:ro toolbox $args}
 ```
 
 Now you can just use `toolbox`
@@ -111,7 +111,7 @@ echo "\nalias toolbox='docker run -it -v ~/.aws:/root/.aws:ro toolbox'" >> ~/.pr
 
 Windows:
 ```
-Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v ~/.aws:/root/.aws:ro toolbox}"
+Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v ~/.aws:/root/.aws:ro toolbox $args}"
 ```
 
 # Maintaining the AWS hosted image
