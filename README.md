@@ -52,7 +52,7 @@ NOTE: Below assumes profile name `build-nonprod`
 
 Linux:
 ```
-$( AWS_PROFILE=build-nonprod aws --region ap-southeast-2 ecr get-login --no-incl )
+$( AWS_PROFILE=build-nonprod aws ecr get-login --no-include-email --region ap-southeast-2 )
 ```
 
 Windows
