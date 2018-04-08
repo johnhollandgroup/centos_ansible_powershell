@@ -56,6 +56,18 @@ $( AWS_PROFILE=build-nonprod aws --region ap-southeast-2 ecr get-login --no-incl
 ```
 
 Windows
+
+# Verify the AWSPowerShell module is Available
+```
+Get-Module -Name AWSPowerShell
+```
+
+# Install and Import the AWSPowerShell module
+```
+Install-Module -Name AWSPowerShell
+Import-Module AWSPowerShell
+```
+
 ```
 # http://btburnett.com/2017/01/docker-login-for-amazon-aws-ecr-using-windows-powershell.html
 $token = Get-ECRAuthorizationToken -Region ap-southeast-2 -ProfileName build-nonprod
@@ -79,14 +91,16 @@ Vanilla use:
 docker run -it toolbox
 ```
 
+Share your host Filesystem with Docker from the system tray Docker > Settings > Shared Drives and authenticate with your admin account.
+
 Mount your current directory to `/parent`:
 ```
-docker run -it -v $(pwd):/parent toolbox
+docker run -it -v <FullPathonHostFileSystem>:/parent toolbox
 ```
 
 Mount your AWS credentials:
 ```
-docker run -it -v $(pwd):/parent -v ~/.aws:/root/.aws:ro toolbox
+docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox
 ```
 NOTE: This is useful when you use saml2aws on your host, and you want your profiles to work inside the container
 
@@ -97,12 +111,12 @@ Lets say you're sick of typing all that stuff, you can set an alias
 
 Linux:
 ```
-alias toolbox='docker run -it -v $(pwd):/parent -v ~/.aws:/root/.aws:ro toolbox'
+alias toolbox='docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox'
 ```
 
 Windows:
 ```
-function toolbox {docker run -it -v $(pwd):/parent -v ~/.aws:/root/.aws:ro toolbox $args}
+function toolbox {docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox $args}
 ```
 
 Now you can just use `toolbox`
@@ -111,12 +125,12 @@ Now you can just use `toolbox`
 
 Linux: (depends on your shell of choice)
 ```
-echo "\nalias toolbox='docker run -it -v $(pwd):/parent -v ~/.aws:/root/.aws:ro toolbox'" >> ~/.profile
+echo "\nalias toolbox='docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox'" >> ~/.profile
 ```
 
 Windows:
 ```
-Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v $(pwd):/parent -v ~/.aws:/root/.aws:ro toolbox $args}"
+Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox $args}"
 ```
 
 # Maintaining the AWS hosted image
