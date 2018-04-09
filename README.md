@@ -130,7 +130,7 @@ echo "\nalias toolbox='docker run -it -v <FullPathonHostFileSystem>:/parent -v ~
 
 Windows:
 ```
-Out-File -Append -Force -Path '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox $args}"
+Out-File -Append -Force -FilePath '~\Documents\profile.ps1' -InputObject "`nfunction toolbox {docker run -it -v <FullPathonHostFileSystem>:/parent -v ~/.aws:/root/.aws:ro toolbox $args}"
 ```
 
 # Maintaining the AWS hosted image
