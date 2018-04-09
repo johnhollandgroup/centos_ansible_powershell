@@ -57,12 +57,12 @@ $( AWS_PROFILE=build-nonprod aws --region ap-southeast-2 ecr get-login --no-incl
 
 Windows
 
-# Verify the AWSPowerShell module is Available
+#### Verify the AWSPowerShell module is Available
 ```
 Get-Module -Name AWSPowerShell
 ```
 
-# Install and Import the AWSPowerShell module
+#### Install and Import the AWSPowerShell module
 ```
 Install-Module -Name AWSPowerShell
 Import-Module AWSPowerShell
