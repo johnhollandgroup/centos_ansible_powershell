@@ -8,8 +8,10 @@ RUN yum update -y && yum -y install epel-release \
     && yum groupinstall -y 'Development Tools' \
     && yum install -y \
         ca-certificates \
+        dos2unix \
         gcc \
         git \
+        jq \
         libffi-devel \
         openssl-devel \
         python-crypto \
@@ -18,8 +20,6 @@ RUN yum update -y && yum -y install epel-release \
         readline-devel \
         sshpass \
         zlib-devel \
-        dos2unix \
-        jq \
     && curl -L $POWERSHELL_DOWNLOAD_URL --output powershell_linux.rpm \
     && yum -y install powershell_linux.rpm \
     && rm powershell_linux.rpm --force \
